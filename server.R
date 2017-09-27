@@ -3,7 +3,8 @@
 #################################################
 
 shinyServer(function(input, output,session) {
-  set.seed=2092014   
+  
+set.seed=2092014   
 
 dataset <- reactive({
     if (is.null(input$file)) {return(NULL)}
@@ -117,5 +118,22 @@ output$downloadData1 <- downloadHandler(
       writeLines(readLines("data/Nokia_Lumia_reviews.txt"), file)
     }
   )
+
+t1 = reactive({
+  if (is.null(input$file)) {return(NULL)}
+  else {
+    sortedobj = dtm_tcm()$dtm[,order(wordcounts(), decreasing = T)]
+    sortedobj[,1:40]
+  }
+  
+})
+
+
+output$downloadData2 <- downloadHandler(
+  filename = function() { "Top terms DTM.csv" },
+  content = function(file) {
+    write.csv(t1(), file)
+  }
+)
 
 })

@@ -1,0 +1,12 @@
+name: basic-text-analysis
+title: basic-text-analysis
+username:
+account: wordcloud
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 219263
+bundleId: 999499
+url: https://wordcloud.shinyapps.io/basic-text-analysis/
+when: 1506499608.56898
+asMultiple: FALSE
+asStatic: FALSE
