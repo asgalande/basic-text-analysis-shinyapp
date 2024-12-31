@@ -118,8 +118,10 @@ distill.cog.tcm = function(mat1, # input TCM or DTM MAT
   
   graph <- graph.adjacency(mat4, mode = "undirected", weighted=T)    # Create Network object
   
-  graph = simplify(graph) 
-  V(graph)$color[1:s] = "green"
+  graph = simplify(graph)
+  col_vec <- c(rep("green",s),rep("pink",length(V(graph))-s))
+  V(graph)$color = col_vec
+  # V(graph)$color[1:s] = "green"
   # V(graph)$color[(s+1):length(V(graph))] = "pink"
   
   graph = delete.vertices(graph, V(graph)[ degree(graph) == 0 ]) # delete singletons?
