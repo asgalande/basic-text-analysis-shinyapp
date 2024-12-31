@@ -119,7 +119,7 @@ distill.cog.tcm = function(mat1, # input TCM or DTM MAT
   graph <- graph.adjacency(mat4, mode = "undirected", weighted=T)    # Create Network object
   
   graph = simplify(graph)
-  col_vec <- c(rep("green",s),rep("pink",length(V(graph))-s))
+  col_vec <- c(rep("#CCCCCC",s),rep("#666666",length(V(graph))-s))
   V(graph)$color = col_vec
   # V(graph)$color[1:s] = "green"
   # V(graph)$color[(s+1):length(V(graph))] = "pink"
